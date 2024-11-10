@@ -1,4 +1,6 @@
 import React from 'react';
+import Counter from './components/Counter';
+import React from 'react';
 import UserProfile from './components/UserProfile';
 import React from 'react';
 import Header from './components/Header';
@@ -16,6 +18,9 @@ function App() {
 
   return (
     <>
+    <div>
+            <Counter />
+        </div>
      <div>
             <UserProfile name="Alice" age="25" bio="Loves hiking and photography" />
         </div>
