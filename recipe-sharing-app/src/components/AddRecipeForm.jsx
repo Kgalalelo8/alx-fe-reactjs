@@ -14,24 +14,50 @@ const AddRecipeForm = () => {
         setDescription('');
 
     };
-    return(
-        <form onSubmit= {handleSubmit}>
-            <input
+    return (
+        <form
+          onSubmit={handleSubmit}
+          style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '30px' }}
+        >
+          <input
             type="text"
             value={title}
-            onChange= {(e) => setTitle(e.target.value)}
-            placeholder="Title"
-            />
-            <textarea 
-            value= {descriptio}
-            onChange= {(e) => stetDescription(e.target.value)}
-            placeholder="Description"
-            />
-            <button type= "submit">Add Recipe</button>
-            </form>
-
-    );
-
-};
-
-export default AddReciepeForm;
+            onChange={(e) => setTitle(e.target.value)}
+            placeholder="Recipe Title"
+            style={{
+              padding: '10px',
+              fontSize: '16px',
+              borderRadius: '5px',
+              border: '1px solid #ccc',
+              width: '100%',
+            }}
+          />
+          <textarea
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            placeholder="Recipe Description"
+            style={{
+              padding: '10px',
+              fontSize: '16px',
+              borderRadius: '5px',
+              border: '1px solid #ccc',
+              width: '100%',
+              minHeight: '100px',
+            }}
+          />
+          <button
+            type="submit"
+            style={{
+              padding: '10px 20px',
+              fontSize: '16px',
+              backgroundColor: '#28a745',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '5px',
+              cursor: 'pointer',
+            }}
+          >
+            Add Recipe
+          </button>
+        </form>
+      );
