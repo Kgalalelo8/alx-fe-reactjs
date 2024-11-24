@@ -1,32 +1,19 @@
-
 import React, { useState } from "react";
 
 const RegistrationForm = () => {
-  const [formData, setFormData] = useState({
-    username: "",
-    email: "",
-    password: "",
-  });
-
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { username, email, password } = formData;
-
     if (!username || !email || !password) {
       setError("All fields are required.");
       return;
     }
-
     setError("");
-    console.log("Form submitted successfully", formData);
-    // Replace the following with your API call logic
+    console.log("Form submitted successfully", { username, email, password });
     alert("Registration successful!");
   };
 
@@ -37,9 +24,8 @@ const RegistrationForm = () => {
           Username:
           <input
             type="text"
-            name="username"
-            value={formData.username}
-            onChange={handleChange}
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
           />
         </label>
       </div>
@@ -48,9 +34,8 @@ const RegistrationForm = () => {
           Email:
           <input
             type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </label>
       </div>
@@ -59,9 +44,8 @@ const RegistrationForm = () => {
           Password:
           <input
             type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </label>
       </div>
@@ -72,3 +56,5 @@ const RegistrationForm = () => {
 };
 
 export default RegistrationForm;
+
+        
