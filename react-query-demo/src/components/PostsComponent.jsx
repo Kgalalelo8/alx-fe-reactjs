@@ -9,8 +9,10 @@ const fetchPosts = async () => {
 
 const PostsComponent = () => {
   const { data, isLoading, isError, error, refetch } = useQuery("posts", fetchPosts, {
-    staleTime: 60000, // Cache stays fresh for 1 minute
-    cacheTime: 300000, // Cache remains for 5 minutes after unmount
+    staleTime: 60000, // Data is considered fresh for 1 minute
+    cacheTime: 300000, // Data remains in cache for 5 minutes
+    refetchOnWindowFocus: true, // Refetch when the window is refocused
+    keepPreviousData: true, // Keep old data visible during refetching
   });
 
   if (isLoading) return <div>Loading...</div>;
@@ -34,3 +36,4 @@ const PostsComponent = () => {
 };
 
 export default PostsComponent;
+
