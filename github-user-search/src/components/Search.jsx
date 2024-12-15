@@ -21,7 +21,7 @@ const Search = () => {
       const data = await fetchUserData(query); // Fetch user data
       setUserData(data); // Set user data in state
     } catch (err) {
-      setError("Looks like we can't find the user."); // Show error message
+      setError("Looks like we can't find the user."); // Display specified error message
     } finally {
       setLoading(false); // Reset loading state
     }
@@ -57,3 +57,4 @@ const Search = () => {
 };
 
 export default Search;
+
