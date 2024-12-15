@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://api.github.com/search/users";
+const BASE_URL = "https://api.github.com/search/users?q";
 
 export const fetchUsers = async ({ query, location, minRepos }) => {
   let searchQuery = query ? `${query}` : "";
